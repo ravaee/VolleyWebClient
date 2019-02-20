@@ -18,10 +18,8 @@ you need just make new object and override 2 listeners (CallBackMethods):
 
 ```java
 
-    private void initialProviderList(final SwipeRefreshLayout sw){
+    private void initialProviderList(){
 
-        final ListView listView = findViewById(R.id.providerListView);
-        //should ch
         String url = ProjectSettings.apiUrl+"provider/getAll";
         WebClient webClient = new WebClient(ProvidersActivity.this);
         webClient.getData(url,null);
