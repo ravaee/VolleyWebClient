@@ -38,3 +38,40 @@ you need just make new object and override 2 listeners (CallBackMethods):
     }
 
 ```
+another esmaple for post request to get token in OAuth2 authontication system.
+
+```
+    private void sendGetTokenRequest(){
+        WebClient webClient = new WebClient(CodeActivity.this);
+        String url=ProjectSettings.apiUrlGetToken;
+
+        Map<String,String> getTokenParams = new HashMap<>();
+        getTokenParams.put("username","mohamad");
+        getTokenParams.put("password","asd123123");
+        getTokenParams.put("grant_type","password";
+
+        webClient.postData(url,getTokenParams,null);
+
+        webClient.setDataReceivedListener(new WebClient.OnDataReceivedListener() {
+            @Override
+            public void onSuccessDataReceived(Object response) {
+
+                try {
+                  JSONObject jsonObject = new JSONObject(response.toString());
+                  Toast.makeText(CodeActivity.this, jsonObject.getString("access_token"), Toast.LENGTH_SHORT).show();
+                  Setting.getInstance(CodeActivity.this).storeBearerToken(jsonObject.getString("access_token"));
+                }
+                } catch (JSONException e) {
+                  Toast.makeText(CodeActivity.this, "get token failed", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            @Override
+            public void onErrorDataReceived(Object response) {
+                Toast.makeText(CodeActivity.this, "there was a problem in connection to server", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+```
