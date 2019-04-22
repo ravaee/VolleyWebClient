@@ -1,8 +1,11 @@
 # VoleyWebclient
 Voley Webclient help you to fetch data from restful webservices in android native apps 
 
-## Usages
+# Usages
 you need just make new object and override 2 listeners (CallBackMethods):
+
+## Http Get example
+
 
 ```java
       @Override
@@ -38,9 +41,10 @@ you need just make new object and override 2 listeners (CallBackMethods):
     }
 
 ```
-another esmaple for post request to get token in OAuth2 authontication system.
+## Http Post example
+another exmaple for post request to get token in OAuth2 authontication system.
 
-```
+```java
     private void sendGetTokenRequest(){
         WebClient webClient = new WebClient(CodeActivity.this);
         String url=ProjectSettings.apiUrlGetToken;
