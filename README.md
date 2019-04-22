@@ -4,9 +4,6 @@ Voley Webclient help you to fetch data from restful webservices in android nativ
 # Usages
 you need just make new object and override 2 listeners (CallBackMethods):
 
-## Http Get example
-
-
 ```java
       @Override
       public void onSuccessDataReceived(Object response) {
@@ -18,6 +15,8 @@ you need just make new object and override 2 listeners (CallBackMethods):
           //show Error 
       }
 ```
+
+## Http Get example
 
 ```java
 
